@@ -5,7 +5,7 @@ metadata:
   namespace: devops-l3gl
 type: Opaque
 data:
-  mysql-root-password: cm9vdA==
+  mysql-root-password: ""
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -26,10 +26,7 @@ spec:
           image: mysql:8.0
           env:
             - name: MYSQL_ROOT_PASSWORD
-              valueFrom:
-                secretKeyRef:
-                  name: mysql-secret
-                  key: mysql-root-password
+              value: ""
             - name: MYSQL_DATABASE
               value: taskdb
           ports:
