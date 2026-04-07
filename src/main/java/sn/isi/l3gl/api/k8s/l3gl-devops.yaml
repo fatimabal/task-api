@@ -4,9 +4,9 @@ metadata:
   name: task-api-config
   namespace: devops-l3gl
 data:
-  spring.datasource.url=jdbc:mysql://mysql-service:3306/taskdb
-  spring.datasource.username=root
-  spring.datasource.password=
+  SPRING_DATASOURCE_URL: "jdbc:mysql://mysql-service:3306/taskdb"
+  SPRING_DATASOURCE_USERNAME: "root"
+  SPRING_DATASOURCE_PASSWORD: ""
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -42,8 +42,10 @@ spec:
             httpGet:
               path: /actuator/health/readiness
               port: 8085
-            initialDelaySeconds: 30
+            initialDelaySeconds: 200
             periodSeconds: 10
+            timeoutSeconds: 5
+            failureThreshold: 5
           livenessProbe:
             httpGet:
               path: /actuator/health/liveness
