@@ -47,7 +47,24 @@
             <artifactId>task-core</artifactId>
             <version>0.3.0</version>
         </dependency>
+        <!-- Prometheus : pour exposer les métriques -->
+        <dependency>
+            <groupId>io.micrometer</groupId>
+            <artifactId>micrometer-registry-prometheus</artifactId>
+        </dependency>
+
+        <!-- Loki : pour envoyer les logs -->
+        <dependency>
+            <groupId>com.github.loki4j</groupId>
+            <artifactId>loki-logback-appender</artifactId>
+            <version>1.4.1</version>
+        </dependency>
+        <dependency>
+            <groupId>io.micrometer</groupId>
+            <artifactId>micrometer-registry-prometheus</artifactId>
+        </dependency>
     </dependencies>
+
 
     <build>
         <plugins>
